@@ -1,0 +1,12 @@
+{
+  "name": "paradox",
+  "dockerFile": "Dockerfile",
+  "features": {
+    "ghcr.io/balazs23/devcontainers-features/bazel:1": {}
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+  },
+  "onCreateCommand": ["sudo", "ln", "-s", "-f", "bazelisk", "/usr/local/bin/bazel"]
+}
+
