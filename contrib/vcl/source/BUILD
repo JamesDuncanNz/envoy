@@ -60,6 +60,7 @@ envoy_cmake(
     tags = [
         "cpu:16",
         "skip_on_windows",
+        "no-remote"
     ],
     targets = [
         "vppcom",

@@ -261,7 +261,8 @@ build:remote --strategy=Javac=remote,sandboxed,local
 build:remote --strategy=Closure=remote,sandboxed,local
 build:remote --strategy=Genrule=remote,sandboxed,local
 build:remote --remote_timeout=7200
-build:remote --google_default_credentials=true
+# Comment out Google Creds - Engflow
+# build:remote --google_default_credentials=true
 build:remote --remote_download_toplevel
 build:remote --nobuild_runfile_links
 
@@ -348,9 +349,7 @@ build:remote-ci-engflow --remote_cache=grpcs://morganite.cluster.engflow.com
 build:remote-ci-engflow --remote_executor=grpcs://morganite.cluster.engflow.com
 build:remote-ci-engflow --config=ci
 build:remote-ci-engflow --config=engflow
-# build:remote-ci-engflow --config=engflow-auth
-build:remote-ci-engflow --tls_client_certificate=/home/james/engflow.crt
-build:remote-ci-engflow --tls_client_key=/home/james/engflow.key
+build:remote-ci-engflow --config=engflow-auth
 
 # Build Event Service
 build:google-bes --bes_backend=grpcs://buildeventservice.googleapis.com
@@ -359,21 +358,17 @@ build:google-bes --bes_results_url=https://source.cloud.google.com/results/invoc
 # Build Event Service - Engflow
 build:engflow-bes --bes_backend=grpcs://morganite.cluster.engflow.com
 build:engflow-bes --bes_results_url=https://morganite.cluster.engflow.com/invocation/
-build:engflow-bes --tls_client_certificate=/home/james/engflow.crt
-build:engflow-bes --tls_client_key=/home/james/engflow.key
-# build:engflow-bes --config=engflow-auth
 
 # Auth for RBE - Engflow
-build:engflow-auth --tls_client_certificate=/home/james/engflow.crt
-build:engflow-auth --tls_client_key=/home/james/engflow.key
+build:engflow-auth --tls_client_certificate=/workspaces/engflow.crt
+build:engflow-auth --tls_client_key=/workspaces/engflow.key
 
 # Engflow Common Tags
 build:engflow --define=EXECUTOR=remote
-build:engflow --disk_cache=
 build:engflow --experimental_inmemory_dotd_files
 build:engflow --experimental_inmemory_jdeps_files
 build:engflow --incompatible_strict_action_env=true
-build:engflow --remote_timeout=600
+build:engflow --remote_timeout=7200
 build:engflow --nolegacy_important_outputs
 build:engflow --grpc_keepalive_time=30s
 build:engflow --experimental_remote_cache_compression=true
