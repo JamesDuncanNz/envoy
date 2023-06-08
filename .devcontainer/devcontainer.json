@@ -1,10 +1,10 @@
 {
   "name": "Envoy Dev",
   "dockerFile": "Dockerfile",
-  "hostReauirements": {
-    "storage": "50GB",
+  "hostRequirements": {
+    "storage": "100gb",
     "cpus": "4",
-    "memory": "8GB"
+    "memory": "8gb"
   }
   "runArgs": [
     "--user=vscode",
