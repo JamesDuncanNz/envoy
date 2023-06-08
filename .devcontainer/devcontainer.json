@@ -1,6 +1,11 @@
 {
   "name": "Envoy Dev",
   "dockerFile": "Dockerfile",
+  "hostReauirements": {
+    "storage": "50GB",
+    "cpus": "4",
+    "memory": "8GB"
+  }
   "runArgs": [
     "--user=vscode",
     "--cap-add=SYS_PTRACE",
